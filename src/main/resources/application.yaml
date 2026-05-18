@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: tasks
+
+  datasource:
+    url: jdbc:mysql://localhost:3309/tasks?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&connectionCollation=utf8mb4_unicode_ci
+    username: root
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    
