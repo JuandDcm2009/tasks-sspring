@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Task {
     private UUID id;
-    private UUID boardId;
+    private Board board;
     private String name;
     private String description;
     private LocalDateTime startDate;
@@ -14,14 +14,14 @@ public class Task {
     public Task() {}
     public Task(
         UUID id,
-        UUID boardId,
+        Board board,
         String name,
         String description,
         LocalDateTime startDate,
         LocalDateTime endDate
     ) {
         this.id = id;
-        this.boardId = boardId;
+        this.board = board;
         this.name = name;
         this.description = description;
         this.startDate = startDate;
@@ -34,11 +34,11 @@ public class Task {
     public void setId(UUID id) {
         this.id = id;
     }
-    public UUID getBoardId() {
-        return boardId;
+    public Board getBoard() {
+        return board;
     }
-    public void setBoardId(UUID boardId) {
-        this.boardId = boardId;
+    public void setBoard(Board board) {
+        this.board = board;
     }
     public String getName() {
         return name;
