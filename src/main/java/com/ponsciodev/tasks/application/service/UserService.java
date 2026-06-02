@@ -8,6 +8,7 @@ import com.ponsciodev.tasks.application.dto.UserRegisterRequestDto;
 import com.ponsciodev.tasks.application.dto.UserRegisterResponseDto;
 import com.ponsciodev.tasks.domain.model.User;
 import com.ponsciodev.tasks.domain.port.UserRepostitory;
+import com.ponsciodev.tasks.domain.service.PasswordService;
 
 import lombok.AllArgsConstructor;
 
@@ -16,11 +17,15 @@ import lombok.AllArgsConstructor;
 public class UserService {
 
     private final UserRepostitory repostitory;
+    private final PasswordService passwordService;
     
     public UserRegisterResponseDto registerUser(UserRegisterRequestDto request) {
         if (!ValidIfEmailExists(request.email())) throw new RuntimeException("Email already exists");
-        repostitory.save( new User( request.name(), request.email(), request.password()));
-        return new UserRegisterResponseDto(request.name(), request.email());
+        
+        String hashedPassword = passwordService.encode(request.password());
+        User repositoryResponse = repostitory.save( new User( request.name(), request.email(), hashedPassword));
+        
+        return new UserRegisterResponseDto(repositoryResponse.getName(), repositoryResponse.getEmail());
     }
 
     private Boolean ValidIfEmailExists(String email) {
