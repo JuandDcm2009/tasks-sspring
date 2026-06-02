@@ -19,7 +19,6 @@ public class UserMapper {
 
     public User toDomain(UserEntity entity) {
         return new User(
-            entity.getId(),
             entity.getName(),
             entity.getEmail(),
             entity.getPassword()

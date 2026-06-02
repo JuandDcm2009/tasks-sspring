@@ -39,5 +39,9 @@ public class UserRepositoryAdapter implements UserRepostitory {
         repostitory.deleteById(id);
     }
 
+    @Override
+    public List<User> findByEmail(String email) {
+        return repostitory.findByEmail(email).stream().map(mapper::toDomain).toList();
+    }
 
 }

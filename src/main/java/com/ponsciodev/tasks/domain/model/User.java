@@ -11,7 +11,6 @@ public class User {
     public User() {}
     
     public User(
-        UUID id,
         String name,
         String email,
         String password
