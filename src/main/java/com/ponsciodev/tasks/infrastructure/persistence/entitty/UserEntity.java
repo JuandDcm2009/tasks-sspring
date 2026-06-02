@@ -12,20 +12,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
-@Table(name = "board")
-public class BoardEntity {
-    
-    @Id
-    @Column(nullable = false)
+public class UserEntity {
+
+    @Id @Column(nullable = false)
     private UUID id;
 
     @Column(nullable = false)
     private String name;
 
-    @Column(name = "user_id", nullable = false)
-    private UUID userId;
+    @Column(nullable = false)
+    private String email;
 
+    @Column(nullable = false)
+    private String password;
 }

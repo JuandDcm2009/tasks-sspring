@@ -14,14 +14,16 @@ public class BoardMapper {
     public BoardEntity toEntity(Board domain) {
         return new BoardEntity(
             domain.getId(),
-            domain.getName()
+            domain.getName(),
+            domain.getUserId()
         );
     }
 
     public Board toDomain(BoardEntity entity) {
         return new Board(
             entity.getId(),
-            entity.getName()
+            entity.getName(),
+            entity.getUserId()
         );
     }    
 
