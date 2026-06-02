@@ -17,8 +17,10 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class BoardRepositoryAdapter implements BoardRepository {
+    
     @Autowired
     private BoardMapper mapper;
+
     @Autowired
     private BoardJpaRepository repository;
     
@@ -41,5 +43,4 @@ public class BoardRepositoryAdapter implements BoardRepository {
         repository.deleteById(id);
     }
 
-    
 }
